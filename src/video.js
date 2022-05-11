@@ -21,26 +21,15 @@ function App() {
         </div>
     </div>
     )
-}  
-
-//use Ref return object, current
-// hooks are in react dom
-// object seal --> read only
-// useRef not render
-// useState(object.seal({current: null}))[0]; ==== useRef
-// notation 
-// useRef - can change const properties (which is current)
-// const object = {current: null};
-// object.current = 'bla'; --> so won't be render
+}
 
 function VideoPlayer({src, controls}, ref){
     const videoRef = {current: null}|| ref;
-    // const ref = useRef(null); // returns object with current: null
     
     useImperativeHandler(ref, () => ({
         play,
         stop: pause,
-        toggle, // so now we can add toggle api
+        toggle,
         isPlay: true
     }), []);
 
